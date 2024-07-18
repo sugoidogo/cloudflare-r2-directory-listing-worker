@@ -4,5 +4,5 @@ main = "build/worker/shim.mjs"
 compatibility_date = "2023-08-15"
 
 r2_buckets  = [
-  { binding = "BUCKET", bucket_name = "cloudflare-r2-listing-test-bucket"}
+  { binding = "BUCKET", bucket_name = "lindcraft"}
 ]
