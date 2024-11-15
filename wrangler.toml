@@ -3,6 +3,22 @@ workers_dev = true
 main = "build/worker/shim.mjs"
 compatibility_date = "2023-08-15"
 
+[env.lindcraft]
+
 r2_buckets  = [
   { binding = "BUCKET", bucket_name = "lindcraft"}
+]
+
+routes = [
+  { pattern = "mc-backup.lindfreyr.com", custom_domain = true }
+]
+
+[env.kicraft]
+
+r2_buckets  = [
+  { binding = "BUCKET", bucket_name = "kicraft"}
+]
+
+routes = [
+  { pattern = "mc-backup.katboyki.com", custom_domain = true }
 ]
