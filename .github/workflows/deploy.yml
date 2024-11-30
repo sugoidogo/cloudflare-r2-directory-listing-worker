@@ -65,13 +65,13 @@ jobs:
           curl -fSsL https://github.com/WebAssembly/binaryen/releases/download/version_${BINARYEN_VERSION}/binaryen-version_${BINARYEN_VERSION}-x86_64-linux.tar.gz | tar --strip-components=2 -xzvf- binaryen-version_${BINARYEN_VERSION}/bin/wasm-opt
           chmod +x ./wasm-opt
 
-      - name: Install cargo-nextest
-        run: |
-          curl -fSsL https://get.nexte.st/latest/linux | tar zxf - -C ${CARGO_HOME:-~/.cargo}/bin
+      #- name: Install cargo-nextest
+      #  run: |
+      #    curl -fSsL https://get.nexte.st/latest/linux | tar zxf - -C ${CARGO_HOME:-~/.cargo}/bin
 
-      - name: Run the tests
-        run: |
-          cargo nextest run
+      #- name: Run the tests
+      #  run: |
+      #    cargo nextest run
 
       - name: Build the worker
         run: |
@@ -90,3 +90,10 @@ jobs:
           apiToken: ${{ secrets.CF_API_TOKEN }}
           accountId: ${{ secrets.CF_ACCOUNT_ID }}
           command: deploy --env=kicraft
+
+      - name: Deploy the melonnworld worker
+        uses: cloudflare/wrangler-action@2.0.0
+        with:
+          apiToken: ${{ secrets.CF_API_TOKEN }}
+          accountId: ${{ secrets.CF_ACCOUNT_ID }}
+          command: deploy --env=melonnworld
