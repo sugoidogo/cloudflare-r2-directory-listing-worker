@@ -22,3 +22,13 @@ r2_buckets  = [
 routes = [
   { pattern = "mc-backup.katboyki.com", custom_domain = true }
 ]
+
+[env.melonnworld]
+
+r2_buckets  = [
+  { binding = "BUCKET", bucket_name = "melonnworld"}
+]
+
+routes = [
+  { pattern = "melonnworld.zetaherd.com", custom_domain = true }
+]
